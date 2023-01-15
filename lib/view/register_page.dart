@@ -5,7 +5,6 @@ import 'package:wallpaper_selector/components/my_button.dart';
 import 'package:wallpaper_selector/components/my_textfield.dart';
 import 'package:wallpaper_selector/components/square_tile.dart';
 
-import '../components/square_tile.dart';
 import '../services/auth_service.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -81,7 +80,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepOrange[400],
+      backgroundColor: const Color(0xFFE3FDFD),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -93,7 +92,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 // logo
                 const Icon(
                   Icons.lock,
-                  color: Colors.white,
+                  color: Color(0xFF71C9CE),
                   size: 50,
                 ),
 
@@ -103,7 +102,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 const Text(
                   'Let\'s create an account for you!',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Color(0xFF71C9CE),
+                    fontWeight: FontWeight.w700,
                     fontSize: 16,
                   ),
                 ),
@@ -153,31 +153,31 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
-                    children: [
+                    children: const [
                       Expanded(
                         child: Divider(
                           thickness: 0.5,
-                          color: Colors.grey[300],
+                          color: Color(0xFFA6E3E9),
                         ),
                       ),
-                      const Padding(
+                      Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10.0),
                         child: Text(
                           'Or continue with',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Color(0xFF71C9CE)),
                         ),
                       ),
                       Expanded(
                         child: Divider(
                           thickness: 0.5,
-                          color: Colors.grey[300],
+                          color: Color(0xFFA6E3E9),
                         ),
                       ),
                     ],
                   ),
                 ),
 
-                const SizedBox(height: 50),
+                const SizedBox(height: 30),
 
                 // google + apple sign in buttons
                 Row(
@@ -193,7 +193,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ],
                 ),
 
-                const SizedBox(height: 50),
+                const SizedBox(height: 30),
 
                 // not a member? register now
                 Row(
@@ -201,15 +201,15 @@ class _RegisterPageState extends State<RegisterPage> {
                   children: [
                     const Text(
                       'Already have an account?',
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Color(0xFF71C9CE)),
                     ),
                     const SizedBox(width: 4),
                     GestureDetector(
                       onTap: widget.onTap,
-                      child: const Text(
+                      child: Text(
                         'Login now',
                         style: TextStyle(
-                          color: Color(0xFFDD2C00),
+                          color: Colors.teal.shade400,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wallpaper_selector/controller/image_controller.dart';
 import 'package:wallpaper_selector/view/register_page.dart';
 
 import 'login.dart';

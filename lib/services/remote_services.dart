@@ -19,10 +19,24 @@ class RemoteServices{
     }
   }
 
+  static Future<List> fetchSearchResults(String search) async{
+    var data = <Map>[];
+    var response = await client.get(Uri.parse('https://api.unsplash.com/search/photos?query=$search&per_page=30&client_id=QWonTgh5yl7hWYvsfYGl0L62E8SqCdCaJMRLqR0UA5Y'));
+    if (response.statusCode == 200){
+      var jsonString = response.body;
+      var data = jsonDecode(jsonString);
+      var returnData = data['results'];
+      return returnData;
+    }
+    else{
+      return data;
+    }
+  }
+
   Future<String> fetchImage(String id) async {
     var client = http.Client();
     var response = await client.get(Uri.parse(
-        "https://api.unsplash.com/photos/${id}/?client_id=QWonTgh5yl7hWYvsfYGl0L62E8SqCdCaJMRLqR0UA5Y"));
+        "https://api.unsplash.com/photos/$id/?client_id=QWonTgh5yl7hWYvsfYGl0L62E8SqCdCaJMRLqR0UA5Y"));
     if (response.statusCode == 200) {
       var jsonString = response.body;
       final data = jsonDecode(jsonString);

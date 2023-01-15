@@ -15,16 +15,16 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 1), (){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>AuthPage(),));
+    Timer(const Duration(seconds: 1), (){
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const AuthPage(),));
     });
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.deepOrange[400],
-      body: const Center(
-          child: Text("Wallpaper Selector", style: TextStyle(
+    return const Scaffold(
+      backgroundColor: Color(0xFFA6E3E9),
+      body: Center(
+          child: Text("Resplash", style: TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.w700,
             color: Colors.white,

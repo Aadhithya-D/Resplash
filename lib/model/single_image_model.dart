@@ -2,7 +2,6 @@
 //
 //     final welcome = welcomeFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 Welcome1 singleWelcomeFromJson(String str) => Welcome1.fromJson(json.decode(str));
@@ -294,7 +293,7 @@ class Result {
   factory Result.fromJson(Map<String, dynamic> json) => Result(
     id: json["id"],
     title: json["title"],
-    description: json["description"] == null ? null : json["description"],
+    description: json["description"],
     publishedAt: DateTime.parse(json["published_at"]),
     lastCollectedAt: DateTime.parse(json["last_collected_at"]),
     updatedAt: DateTime.parse(json["updated_at"]),
@@ -363,8 +362,8 @@ class ResultCoverPhoto {
     height: json["height"],
     color: json["color"],
     blurHash: json["blur_hash"],
-    description: json["description"] == null ? null : json["description"],
-    altDescription: json["alt_description"] == null ? null : json["alt_description"],
+    description: json["description"],
+    altDescription: json["alt_description"],
     urls: Urls.fromJson(json["urls"]),
     links: WelcomeLinks.fromJson(json["links"]),
     likes: json["likes"],
@@ -499,13 +498,13 @@ class User {
     name: json["name"],
     firstName: json["first_name"],
     lastName: json["last_name"],
-    twitterUsername: json["twitter_username"] == null ? null : json["twitter_username"],
-    portfolioUrl: json["portfolio_url"] == null ? null : json["portfolio_url"],
-    bio: json["bio"] == null ? null : json["bio"],
-    location: json["location"] == null ? null : json["location"],
+    twitterUsername: json["twitter_username"],
+    portfolioUrl: json["portfolio_url"],
+    bio: json["bio"],
+    location: json["location"],
     links: UserLinks.fromJson(json["links"]),
     profileImage: ProfileImage.fromJson(json["profile_image"]),
-    instagramUsername: json["instagram_username"] == null ? null : json["instagram_username"],
+    instagramUsername: json["instagram_username"],
     totalCollections: json["total_collections"],
     totalLikes: json["total_likes"],
     totalPhotos: json["total_photos"],
@@ -521,13 +520,13 @@ class User {
     "name": name,
     "first_name": firstName,
     "last_name": lastName,
-    "twitter_username": twitterUsername == null ? null : twitterUsername,
-    "portfolio_url": portfolioUrl == null ? null : portfolioUrl,
-    "bio": bio == null ? null : bio,
-    "location": location == null ? null : location,
+    "twitter_username": twitterUsername,
+    "portfolio_url": portfolioUrl,
+    "bio": bio,
+    "location": location,
     "links": links.toJson(),
     "profile_image": profileImage.toJson(),
-    "instagram_username": instagramUsername == null ? null : instagramUsername,
+    "instagram_username": instagramUsername,
     "total_collections": totalCollections,
     "total_likes": totalLikes,
     "total_photos": totalPhotos,
@@ -615,16 +614,16 @@ class Social {
   dynamic paypalEmail;
 
   factory Social.fromJson(Map<String, dynamic> json) => Social(
-    instagramUsername: json["instagram_username"] == null ? null : json["instagram_username"],
-    portfolioUrl: json["portfolio_url"] == null ? null : json["portfolio_url"],
-    twitterUsername: json["twitter_username"] == null ? null : json["twitter_username"],
+    instagramUsername: json["instagram_username"],
+    portfolioUrl: json["portfolio_url"],
+    twitterUsername: json["twitter_username"],
     paypalEmail: json["paypal_email"],
   );
 
   Map<String, dynamic> toJson() => {
-    "instagram_username": instagramUsername == null ? null : instagramUsername,
-    "portfolio_url": portfolioUrl == null ? null : portfolioUrl,
-    "twitter_username": twitterUsername == null ? null : twitterUsername,
+    "instagram_username": instagramUsername,
+    "portfolio_url": portfolioUrl,
+    "twitter_username": twitterUsername,
     "paypal_email": paypalEmail,
   };
 }
@@ -833,8 +832,8 @@ class SourceCoverPhoto {
     height: json["height"],
     color: json["color"],
     blurHash: json["blur_hash"],
-    description: json["description"] == null ? null : json["description"],
-    altDescription: json["alt_description"] == null ? null : json["alt_description"],
+    description: json["description"],
+    altDescription: json["alt_description"],
     urls: Urls.fromJson(json["urls"]),
     links: WelcomeLinks.fromJson(json["links"]),
     likes: json["likes"],
@@ -842,7 +841,7 @@ class SourceCoverPhoto {
     currentUserCollections: List<dynamic>.from(json["current_user_collections"].map((x) => x)),
     sponsorship: json["sponsorship"],
     topicSubmissions: FluffyTopicSubmissions.fromJson(json["topic_submissions"]),
-    premium: json["premium"] == null ? null : json["premium"],
+    premium: json["premium"],
     user: User.fromJson(json["user"]),
   );
 

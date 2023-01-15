@@ -52,8 +52,8 @@ class Welcome {
     height: json["height"],
     color: json["color"],
     blurHash: json["blur_hash"],
-    description: json["description"] == null ? null : json["description"],
-    altDescription: json["alt_description"] == null ? null : json["alt_description"],
+    description: json["description"],
+    altDescription: json["alt_description"],
     urls: Urls.fromJson(json["urls"]),
     links: WelcomeLinks.fromJson(json["links"]),
     likes: json["likes"],
@@ -158,14 +158,14 @@ class User {
     username: json["username"],
     name: json["name"],
     firstName: json["first_name"],
-    lastName: json["last_name"] == null ? null : json["last_name"],
-    twitterUsername: json["twitter_username"] == null ? null : json["twitter_username"],
-    portfolioUrl: json["portfolio_url"] == null ? null : json["portfolio_url"],
+    lastName: json["last_name"],
+    twitterUsername: json["twitter_username"],
+    portfolioUrl: json["portfolio_url"],
     bio: json["bio"],
-    location: json["location"] == null ? null : json["location"],
+    location: json["location"],
     links: UserLinks.fromJson(json["links"]),
     profileImage: ProfileImage.fromJson(json["profile_image"]),
-    instagramUsername: json["instagram_username"] == null ? null : json["instagram_username"],
+    instagramUsername: json["instagram_username"],
     totalCollections: json["total_collections"],
     totalLikes: json["total_likes"],
     totalPhotos: json["total_photos"],
@@ -240,9 +240,9 @@ class Social {
   dynamic paypalEmail;
 
   factory Social.fromJson(Map<String, dynamic> json) => Social(
-    instagramUsername: json["instagram_username"] == null ? null : json["instagram_username"],
-    portfolioUrl: json["portfolio_url"] == null ? null : json["portfolio_url"],
-    twitterUsername: json["twitter_username"] == null ? null : json["twitter_username"],
+    instagramUsername: json["instagram_username"],
+    portfolioUrl: json["portfolio_url"],
+    twitterUsername: json["twitter_username"],
     paypalEmail: json["paypal_email"],
   );
 
@@ -345,9 +345,7 @@ class EnumValues<T> {
   EnumValues(this.map);
 
   Map<T, String>? get reverse {
-    if (reverseMap == null) {
-      reverseMap = map?.map((k, v) => new MapEntry(v, k));
-    }
+    reverseMap ??= map?.map((k, v) => MapEntry(v, k));
     return reverseMap;
   }
 }
