@@ -19,6 +19,7 @@ class SearchPage extends StatelessWidget {
       imageController.fetchSearchResults(searchData);
       if (!currentFocus.hasPrimaryFocus) {
         currentFocus.unfocus();
+        // NavBar().keyBoardOpen(false);
       }
     }
 
@@ -77,6 +78,9 @@ class SearchPage extends StatelessWidget {
                                             link: imageController
                                                     .searchResult[index]['urls']
                                                 ['full'],
+                                            smallLink: imageController
+                                                    .searchResult[index]["urls"]
+                                                ["small"],
                                           ))),
                             },
                           ),

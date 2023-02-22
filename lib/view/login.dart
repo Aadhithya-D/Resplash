@@ -4,13 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:wallpaper_selector/components/my_button.dart';
 import 'package:wallpaper_selector/components/my_textfield.dart';
 import 'package:wallpaper_selector/components/square_tile.dart';
-
 import 'package:wallpaper_selector/services/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
   const LoginPage({super.key, required this.onTap});
-
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -24,15 +22,16 @@ class _LoginPageState extends State<LoginPage> {
 
   // sign user in method
   void signUserIn() async {
-    showDialog(context: context, builder: (context){
-      return const Center(
-        child: CircularProgressIndicator(),
-      );
-    });
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        });
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text, password: passwordController.text);
     Navigator.pop(context);
-
   }
 
   @override
@@ -60,10 +59,9 @@ class _LoginPageState extends State<LoginPage> {
                   const Text(
                     'Welcome back you\'ve been missed!',
                     style: TextStyle(
-                      color: Color(0xFF71C9CE),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700
-                    ),
+                        color: Color(0xFF71C9CE),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700),
                   ),
 
                   const SizedBox(height: 25),
@@ -94,7 +92,9 @@ class _LoginPageState extends State<LoginPage> {
                       children: const [
                         Text(
                           'Forgot Password?',
-                          style: TextStyle(color: Color(0xFF71C9CE),fontWeight: FontWeight.w700),
+                          style: TextStyle(
+                              color: Color(0xFF71C9CE),
+                              fontWeight: FontWeight.w700),
                         ),
                       ],
                     ),
@@ -145,7 +145,10 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       // google button
-                      SquareTile(imagePath: 'lib/images/google.png', onTap: () => AuthService().signInWithGoogle(),),
+                      SquareTile(
+                        imagePath: 'lib/images/google.png',
+                        onTap: () => AuthService().signInWithGoogle(),
+                      ),
 
                       // SizedBox(width: 25),
                       //
@@ -176,12 +179,12 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ],
-                  )
+                  ),
+                  const SizedBox(height: 10),
                 ],
               ),
             ),
           ),
-        )
-    );
+        ));
   }
 }

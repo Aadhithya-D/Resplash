@@ -60,6 +60,8 @@ class HomePage extends StatelessWidget {
                         builder: (context) => ImageView(
                               id: imageController.imageList[index].id,
                               link: imageController.imageList[index].urls.full,
+                              smallLink:
+                                  imageController.imageList[index].urls.small,
                             ))),
               },
             ),

@@ -9,7 +9,12 @@ import '../controller/image_controller.dart';
 class ImageView extends StatefulWidget {
   final String id;
   final String link;
-  const ImageView({super.key, required this.id, required this.link});
+  final String smallLink;
+  const ImageView(
+      {super.key,
+      required this.id,
+      required this.link,
+      required this.smallLink});
   @override
   State<ImageView> createState() => _ImageViewState();
 }
@@ -41,13 +46,32 @@ class _ImageViewState extends State<ImageView> {
             ),
             Column(
               children: [
-                IconButton(
-                    onPressed: () {
-                      screenDisplay = SystemChrome.setEnabledSystemUIOverlays(
-                          SystemUiOverlay.values);
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(Icons.arrow_back_rounded)),
+                Expanded(
+                  flex: 2,
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      GlassBox(
+                        height: 50.0,
+                        width: 50.0,
+                        child: IconButton(
+                            onPressed: () {
+                              screenDisplay =
+                                  SystemChrome.setEnabledSystemUIOverlays(
+                                      SystemUiOverlay.values);
+                              Navigator.pop(context);
+                            },
+                            icon: const Icon(
+                              Icons.arrow_back_rounded,
+                              size: 35,
+                              color: Colors.white,
+                            )),
+                      ),
+                    ],
+                  ),
+                ),
                 const Expanded(
                   flex: 9,
                   child: SizedBox(),
@@ -67,7 +91,11 @@ class _ImageViewState extends State<ImageView> {
     final alreadySaved = ImageController().check(widget.id);
     Future<bool> onLikeButtonTapped(bool isLiked) async {
       setState(() {
-        Map<String, String> imageData = {'id': widget.id, 'link': widget.link};
+        Map<String, String> imageData = {
+          'id': widget.id,
+          'link': widget.link,
+          'smallLink': widget.smallLink
+        };
         ImageController().change(widget.id, imageData, alreadySaved);
       });
       return !isLiked;

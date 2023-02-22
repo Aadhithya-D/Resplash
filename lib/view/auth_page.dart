@@ -5,7 +5,6 @@ import 'package:wallpaper_selector/view/nav_bar.dart';
 
 import 'login_or_register.dart';
 
-
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
 
@@ -18,7 +17,7 @@ class AuthPage extends StatelessWidget {
           // user is logged in
           if (snapshot.hasData) {
             ImageController().getData();
-            return const NavBar();
+            return NavBar();
           }
 
           // user is NOT logged in

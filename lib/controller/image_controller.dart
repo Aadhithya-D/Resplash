@@ -46,8 +46,18 @@ class ImageController extends GetxController {
         .get()
         .then((QuerySnapshot querySnapshot) {
       for (var doc in querySnapshot.docs) {
-        savedImagesID.add(doc["id"]);
-        savedImagesData.add({"id": doc['id'], "link": doc['link']});
+        savedImagesID.addIf(!savedImagesID.contains(doc["id"]), doc["id"]);
+        savedImagesData.addIf(
+            !savedImagesData.contains({
+              "id": doc['id'],
+              "link": doc['link'],
+              "smallLink": doc["smallLink"]
+            }),
+            {
+              "id": doc['id'],
+              "link": doc['link'],
+              "smallLink": doc["smallLink"]
+            });
       }
     });
   }
@@ -68,6 +78,7 @@ class ImageController extends GetxController {
       savedImagesID.add(id);
       savedImagesData.add(data);
     }
+    print(savedImagesData);
   }
 
   void clear() {
