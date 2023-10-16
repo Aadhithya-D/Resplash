@@ -2,10 +2,10 @@
 
 Resplash is a versatile wallpaper selector application developed using the Flutter framework and powered by Firebase. The app provides users with the ability to discover, bookmark, download, and set their preferred wallpapers as device backgrounds. To offer an extensive range of wallpapers, Resplash seamlessly integrates with the Unsplash API.
 
-![Resplash App](UI/1.jpg)
-![Resplash App](UI/2.jpg)
-![Resplash App](UI/3.jpg)
-![Resplash App](UI/4.jpg)
+![Resplash App](1.jpg)
+![Resplash App](2.jpg)
+![Resplash App](3.jpg)
+![Resplash App](4.jpg)
 
 ## Features
 
